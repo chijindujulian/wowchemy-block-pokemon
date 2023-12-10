@@ -6,13 +6,51 @@
 
 {{/* Add your block layout below */}}
 {{/* Styles can be added to the SCSS file */}}
-{{/* Access custom front matter options via `$block.content`  */}}
+{{/* Access custom front matter options via `$block.content` */}}
 {{/* E.g. Access a `mytext` field via `$block.content.mytext` */}}
 
 {{/* Parse the fields as Markdown with Hugo's `RenderString` */}}
-{{ $title := $block.content.text | emojify | $page.RenderString }}
+{{ $title := $block.content.title | emojify | $page.RenderString }}
 {{ $text := $block.content.text | emojify | $page.RenderString }}
+{{ $text1 := $block.content.text1 | emojify | $page.RenderString }}
+{{ $text2 := $block.content.text2 | emojify | $page.RenderString }}
+{{ $article := $block.content.article | emojify | $page.RenderString }}
+{{ $additionalInfo := $block.content.additionalInfo | emojify | $page.RenderString }}
+{{ $additionalInfo1 := $block.content.additionalInfo1 | emojify | $page.RenderString }}
+{{ $additionalInfo2 := $block.content.additionalInfo2 | emojify | $page.RenderString }}
+{{ $additionalInfo3 := $block.content.additionalInfo3 | emojify | $page.RenderString }}
+{{ $more := $block.content.more | emojify | $page.RenderString }}
+{{ $youtubeVideo := $block.content.youtubeVideo }}
 
-<h2>{{$title}}</h2>
 
-<p>{{$text}}</p>
+<div class="">
+    <div>
+        <h2>{{ $title }}</h2>
+    </div>
+
+    <div>
+        <div class="">
+
+            <div>
+                <p>{{ $article }}</p>
+                <p>{{ $text }}</p>
+                <p>​{{ $additionalInfo }}</p>
+                <p>{{ $text1 }}</p>
+                <p>​{{ $additionalInfo1 }}</p>
+                <p>{{ $text2 }}</p>
+                <p>​{{ $additionalInfo2 }}</p>
+                <p>{{ $additionalInfo3 }}</p>
+            </div>
+
+            <div class="">
+                {{ if $youtubeVideo }}
+                <div class="youtube-container">
+                    <iframe src="{{ $youtubeVideo }}" frameborder="0" allowfullscreen=""></iframe>
+                </div>
+
+                {{ end }}
+            </div>
+
+        </div>
+    </div>
+</div>
